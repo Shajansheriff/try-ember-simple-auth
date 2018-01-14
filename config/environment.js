@@ -6,6 +6,19 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    firebase: {
+      apiKey: "AIzaSyDHhld0vxeNiy4STlGYld_GxVMzC0C9GUw",
+      authDomain: "try-auth-a062c.firebaseapp.com",
+      databaseURL: "https://try-auth-a062c.firebaseio.com",
+      projectId: "try-auth-a062c",
+      storageBucket: "",
+      messagingSenderId: "448340941144"
+    },
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -29,12 +42,13 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+      ENV.APP.API_HOST = 'http://localhost:4200';
   }
 
   if (environment === 'test') {
     // Testem prefers this...
     ENV.locationType = 'none';
-
+    ENV.APP.API_HOST = 'http://localhost:4200';
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
